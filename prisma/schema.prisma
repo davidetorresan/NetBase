@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type Address {
+  road     String
+  building String
+  city     String
+  zipCode  String
+  province String
+  state    String
+  country  String
+}
+
+enum ROLES {
+  ADMIN
+  LEAD
+  DISTRIBUTOR
+  CUSTOMER
+  VIP
+}
+
+model UserSubscription {
+  id                     String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId                 String?   @unique
+  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?   @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+  subscriptionType       String
+}
+
+model Invoice {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceId       String
+  userId          String
+  invoiceData     Json
+  dueDate         DateTime
+  paymentDate     DateTime
+  incoiceDownload String
+}
+
+model User {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  firstname String
+  lastname  String
+  email     String
+  phone     String
+  address   Address
+  team      String
+  services  Json
+  role      ROLES
+}
