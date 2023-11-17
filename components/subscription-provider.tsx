@@ -13,7 +13,7 @@ import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
-import * as frasi from "./data/frasi.json";
+import { frasi } from "./data/frasi.js";
 
 export const SubscriptionProvider = ({
   children,
