@@ -77,7 +77,7 @@ export const SubscriptionProvider = ({
           Stiamo caricando la tua dashboard
         </h1>
         <p className="text-center text-[10px] md:text-lg mt-5 font-extralight">
-          "{frasi[randomValue]?.content}"
+          &quot;{frasi[randomValue]?.content}&quot;
         </p>
         <p className="text-center text-[10px] md:text-lg mt-5 font-bold">
           cit. {frasi[randomValue]?.author}
