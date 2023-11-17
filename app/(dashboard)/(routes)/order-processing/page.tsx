@@ -9,7 +9,7 @@ const OrderProcessing = async () => {
           Benvenuto/a, ci siamo quasi!
         </h1>
         <p className="text-center text-sm md:text-lg mt-5">
-          E' il momento di acquistare il pacchetto di NetBase&trade;
+          E&apos; il momento di acquistare il pacchetto di NetBase&trade;
         </p>
       </div>
       <div className="my-5 w-full flex items-center justify-center flex-col">

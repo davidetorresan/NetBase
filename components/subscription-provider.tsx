@@ -1,18 +1,11 @@
 "use client";
 
-import { auth } from "@clerk/nextjs";
-import prismadb from "@/lib/prismadb";
-import { useRouter } from "next/navigation";
-import { checkSubscription } from "@/lib/subscription";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ProModal } from "./pro-modal";
-import { Card, CardContent } from "./ui/card";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 import { frasi } from "./data/frasi.js";
 
 export const SubscriptionProvider = ({
