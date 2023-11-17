@@ -1,6 +1,5 @@
 "use client";
 
-import TypewriterComponent from "typewriter-effect";
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
 
@@ -13,20 +12,21 @@ export const LandingHero = () => {
     <div className="text-white font-bold py-36 text-center space-y-5">
       <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <h1>
-          NetBase™ è la chiave segreta per trasformare il{" "}
+          NetBase™ è la chiave segreta per trasformare il
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
             network marketing
-          </span>{" "}
-          in un'esperienza senza pari.
+          </span>
+          in un&apos;esperienza senza pari.
         </h1>
       </div>
       <div className="text-sm md:text-lg font-light text-zinc-400">
-        Grazie alla sua piattaforma CRM all'avanguardia, NetBase™ ti offre il
-        potere di connetterti, comprendere e crescere come mai prima d'ora.
+        Grazie alla sua piattaforma CRM all&apos;avanguardia, NetBase™ ti offre
+        il potere di connetterti, comprendere e crescere come mai prima
+        d&apos;ora.
         <br />
         Con analisi intelligenti, strumenti di gestione intuitivi e
-        un'interfaccia user-friendly, trasforma il tuo network in una rete di
-        successo senza limiti.
+        un&apos;interfaccia user-friendly, trasforma il tuo network in una rete
+        di successo senza limiti.
         <br />
         Eleva la tua strategia di marketing con NetBase™ e preparati a
         raggiungere nuovi livelli di risultati e connessioni.
