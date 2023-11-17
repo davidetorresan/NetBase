@@ -18,6 +18,7 @@ export async function POST(req: Request) {
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (error: any) {
+    console.log(error);
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
   }
 
@@ -29,6 +30,7 @@ export async function POST(req: Request) {
     );
 
     if (!session?.metadata?.userId) {
+      console.log("Error");
       return new NextResponse("User id is required", { status: 400 });
     }
 

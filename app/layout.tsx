@@ -28,7 +28,7 @@ export default async function RootLayout({
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
-          <>{children}</>
+          {children}
         </body>
       </html>
     </ClerkProvider>
