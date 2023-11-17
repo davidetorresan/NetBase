@@ -12,20 +12,22 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import * as frasi from "./data/frasi.json";
 
 export const SubscriptionProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  let active;
-
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isActive, setActive] = useState(false);
+  const [isBuying, setBuying] = useState(false);
 
   const onSubscribe = async () => {
     try {
       setLoading(true);
+      setBuying(true);
       const response = await axios.get("/api/stripe");
 
       window.location.href = response.data.url;
@@ -33,20 +35,69 @@ export const SubscriptionProvider = ({
       toast.error("Something went wrong");
     } finally {
       setLoading(false);
+      setBuying(false);
     }
   };
 
   const userSubscription = async () => {
+    setLoading(true);
     let res = await axios.get("/api/subscription");
     setActive(res.data.active);
     console.log("QUI", isActive);
+    setTimeout(() => {
+      setLoading(false);
+    }, 10000);
   };
 
   useEffect(() => {
     userSubscription();
   }, []);
 
-  if (isActive) return <>{children}</>;
+  if (isBuying) {
+    return (
+      <div className="w-full h-full flex justify-center items-center flex-col bg-[#111827] text-white">
+        <h1 className="text-2xl md:text-5xl font-bold text-center">
+          Stai per essere reindirizzato a Stripe
+        </h1>
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/714fda02-0420-47ca-b9cd-d31d7f97cada/RGI761pY0k.json"
+          style={{ height: "100px", width: "100px", background: "transparent" }}
+        />
+      </div>
+    );
+  }
+  if (loading) {
+    const randomValue = parseInt((Math.random() * frasi.length).toString());
+    console.log(randomValue);
+    return (
+      <div className="w-full h-full flex justify-center items-center flex-col bg-[#111827] text-white">
+        <h1 className="text-2xl md:text-5xl font-bold text-center">
+          Stiamo caricando la tua dashboard
+        </h1>
+        <p className="text-center text-[10px] md:text-lg mt-5 font-extralight">
+          "{frasi[randomValue]?.content}"
+        </p>
+        <p className="text-center text-[10px] md:text-lg mt-5 font-bold">
+          cit. {frasi[randomValue]?.author}
+        </p>
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/f739284d-55fa-4766-b2a6-6e92776e713c/4KdOrKcwUO.json"
+          style={{ background: "transparent" }}
+          className="h-[300px] w-[300px] md:h-[500px] md:w-[500px]"
+        />
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/714fda02-0420-47ca-b9cd-d31d7f97cada/RGI761pY0k.json"
+          style={{ height: "100px", width: "100px", background: "transparent" }}
+        />
+      </div>
+    );
+  }
 
   if (!isActive) {
     return (
@@ -116,4 +167,5 @@ export const SubscriptionProvider = ({
       </div>
     );
   }
+  if (isActive && !loading) return <>{children}</>;
 };

@@ -12,7 +12,7 @@ import { SubscriptionProvider } from "@/components/subscription-provider";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Genius",
+  title: "NetBase",
   description: "AI Platform",
 };
 
@@ -28,7 +28,7 @@ export default async function RootLayout({
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
-          <SubscriptionProvider>{children}</SubscriptionProvider>
+          <>{children}</>
         </body>
       </html>
     </ClerkProvider>

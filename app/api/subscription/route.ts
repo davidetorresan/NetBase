@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 import { checkSubscription } from "@/lib/subscription";
-import { auth } from "@clerk/nextjs";
 
 export async function GET() {
   try {
