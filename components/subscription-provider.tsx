@@ -26,11 +26,12 @@ export const SubscriptionProvider = ({
       window.location.href = response.data.url;
     } catch (error) {
       toast.error("Something went wrong");
+      setBuying(false);
     } finally {
       setLoading(false);
-      setBuying(false);
     }
   };
+  const randomValue = parseInt((Math.random() * frasi.length).toString());
 
   const userSubscription = async () => {
     setLoading(true);
@@ -39,7 +40,7 @@ export const SubscriptionProvider = ({
     console.log("QUI", isActive);
     setTimeout(() => {
       setLoading(false);
-    }, 10000);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -62,14 +63,13 @@ export const SubscriptionProvider = ({
     );
   }
   if (loading) {
-    const randomValue = parseInt((Math.random() * frasi.length).toString());
     console.log(randomValue);
     return (
       <div className="w-full h-full flex justify-center items-center flex-col bg-[#111827] text-white">
         <h1 className="text-2xl md:text-5xl font-bold text-center">
           Stiamo caricando la tua dashboard
         </h1>
-        <p className="text-center text-[10px] md:text-lg mt-5 font-extralight">
+        <p className="text-center text-[10px] md:text-lg mt-5 font-extralight max-w-[80%]">
           &quot;{frasi[randomValue]?.content}&quot;
         </p>
         <p className="text-center text-[10px] md:text-lg mt-5 font-bold">
@@ -94,7 +94,7 @@ export const SubscriptionProvider = ({
 
   if (!isActive) {
     return (
-      <div className="w-full h-full md:p-20 px-6 bg-[#111827] text-white">
+      <div className="w-full min-h-screen py-5 md:p-20 px-6 bg-[#111827] text-white">
         <div className="w-full flex justify-center items-center flex-col">
           <h1 className="text-3xl md:text-5xl font-bold text-center">
             Benvenuto/a, ci siamo quasi!
@@ -103,44 +103,50 @@ export const SubscriptionProvider = ({
             E&apos; il momento di acquistare il pacchetto di NetBase&trade;
           </p>
         </div>
-        <div className="my-5 w-full flex items-center justify-center flex-col">
+        <div className="my-4 w-full flex items-center justify-center flex-col">
           <div className="border-[1px] border-solid mb-5 md:w-[50%] w-full pb-10 rounded-md flex items-center justify-center flex-col text-center">
             <Button
               disabled={false}
               size="lg"
               variant="premium"
-              className="w-full mb-8 text-md cursor-default"
+              className="w-full mb-8 text-[12px] md:text-md cursor-default"
             >
               <b>NetBase&trade;</b> Early-PRO Package
             </Button>
-            <h2 className="text-4xl font-bold">
-              €19,99<small className="font-light">/mese</small>
-            </h2>
-            <p className="text-[11px]">Fatturati annualmente: €239,88/anno</p>
-            <p className="mt-5 flex items-center flex-col">
-              <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
-              <span className="font-bold">NetCRM&trade;</span>
-              <small>
-                Il tuo gestionale per gestire al meglio le tue vendite
-              </small>
-            </p>
-            <p className="mt-5 flex items-center flex-col">
-              <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
-              <span className="font-bold">NetGPT&trade;</span>
-              <small>La tua AI dedicato al mondo del Network Marketing</small>
-            </p>
-            <p className="mt-5 flex items-center flex-col">
-              <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
-              <span className="font-bold">NetCAL&trade;</span>
-              <small>
-                Il tuo calendario completamente integrato nel tuo CRM.
-              </small>
-            </p>
-            <p className="mt-5 flex items-center flex-col">
-              <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
-              <span className="font-bold">Supporto Prioritario</span>
-              <small>Supporto con chat live</small>
-            </p>
+            <div className="px-2">
+              <h2 className="text-4xl font-bold">
+                €19,99<small className="font-light">/mese</small>
+              </h2>
+              <p className="text-[11px]">Fatturati annualmente: €239,88/anno</p>
+              <p className="mt-5 flex items-center flex-col">
+                <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
+                <span className="font-bold">NetCRM&trade;</span>
+                <small className="text-[12px] md:text-sm">
+                  Il tuo gestionale per gestire al meglio le tue vendite
+                </small>
+              </p>
+              <p className="mt-5 flex items-center flex-col">
+                <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
+                <span className="font-bold">NetGPT&trade;</span>
+                <small className="text-[12px] md:text-sm">
+                  La tua AI dedicato al mondo del Network Marketing
+                </small>
+              </p>
+              <p className="mt-5 flex items-center flex-col">
+                <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
+                <span className="font-bold">NetCAL&trade;</span>
+                <small className="text-[12px] md:text-sm">
+                  Il tuo calendario completamente integrato nel tuo CRM.
+                </small>
+              </p>
+              <p className="mt-5 flex items-center flex-col">
+                <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
+                <span className="font-bold">Supporto Prioritario</span>
+                <small className="text-[12px] md:text-sm">
+                  Supporto con chat live
+                </small>
+              </p>
+            </div>
           </div>
           <Button
             disabled={loading}
