@@ -41,7 +41,7 @@ export async function GET() {
       tax_id_collection: { enabled: true },
       phone_number_collection: { enabled: true },
       customer_email: user.emailAddresses[0].emailAddress,
-
+      allow_promotion_codes: true,
       line_items: [
         {
           price_data: {
