@@ -50,8 +50,9 @@ export async function POST(req: any) {
       const id = evt?.data?.id as string;
       const firstname = evt?.data?.first_name as string;
       const lastname = evt?.data?.last_name as string;
-      const email = evt?.data?.email_addresses[0].email_address as string;
-      const phone = evt?.data?.phone_numbers[0].phone_number as string;
+      const email = evt?.data?.email_addresses[0]?.email_address as string;
+      const phone =
+        (evt?.data?.phone_numbers[0]?.phone_number as string) || null;
       const role = "CUSTOMER";
 
       try {
