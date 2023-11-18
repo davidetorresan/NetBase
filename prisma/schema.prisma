@@ -46,13 +46,14 @@ model Invoice {
 }
 
 model User {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId   String
   firstname String
   lastname  String
   email     String
   phone     String
-  address   Address
-  team      String
-  services  Json
+  address   Address?
+  team      String?
+  services  Json?
   role      ROLES
 }
