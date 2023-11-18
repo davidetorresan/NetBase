@@ -7,7 +7,6 @@ import { ModalProvider } from "@/components/modal-provider";
 import { CrispProvider } from "@/components/crisp-provider";
 
 import "./globals.css";
-import { SubscriptionProvider } from "@/components/subscription-provider";
 
 const font = Inter({ subsets: ["latin"] });
 
