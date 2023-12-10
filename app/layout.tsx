@@ -28,12 +28,15 @@ export default async function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <CrispProvider />
         <SpeedInsights/>
+        <head>
+        <link rel="icon" href="./favicon.png" type="image/x-icon" sizes="any" />
+        </head>
         <body className={font.className}>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-          />
-          <meta name="HandheldFriendly" content="true" />
+          /> 
+            <meta name="HandheldFriendly" content="true" />
           <ToasterProvider />
           <ModalProvider />
           {children}
