@@ -6,6 +6,8 @@ import { ToasterProvider } from "@/components/toaster-provider";
 import { ModalProvider } from "@/components/modal-provider";
 import { CrispProvider } from "@/components/crisp-provider";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import "./globals.css";
 
 const font = Inter({ subsets: ["latin"] });
@@ -24,6 +26,7 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <CrispProvider />
+        <SpeedInsights/>
         <body className={font.className}>
           <meta
             name="viewport"

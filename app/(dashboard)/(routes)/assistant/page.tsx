@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { ChatCompletionRequestMessage } from "openai";
@@ -61,6 +61,16 @@ const ConversationPage = () => {
       router.refresh();
     }
   };
+
+  const fetchGmail = async () => {
+   let res = await axios.get("/api/gmail")
+
+   console.log(res)
+  }
+
+  useEffect(() => {
+    fetchGmail()
+  }, [])
 
   return (
     <div>
