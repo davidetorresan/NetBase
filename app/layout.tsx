@@ -28,9 +28,6 @@ export default async function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <CrispProvider />
         <SpeedInsights/>
-        <head>
-        <link rel="icon" href="./favicon.png" type="image/x-icon" sizes="any" />
-        </head>
         <body className={font.className}>
           <meta
             name="viewport"
