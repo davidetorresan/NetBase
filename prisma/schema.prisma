@@ -67,10 +67,10 @@ model AssistantMessagesChat {
 }
 
 model Category {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  title    String
-  content  String
-  userId   String
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  content String
+  userId  String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -82,6 +82,19 @@ model Notes {
   content  String
   userId   String
   category String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Apointment {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  content    String
+  userId     String
+  customerId String
+  dateTime   DateTime
+  type       String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

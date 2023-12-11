@@ -23,14 +23,7 @@ const NotesPage = () => {
         bgColor="bg-gray-700/10"
       />
       <div className="px-4 lg:px-8">
-        <div
-          className="rounded-lg 
-              border 
-              p-4 
-              px-3 
-              md:px-6 
-              focus-within:shadow-sm w-full"
-        >
+        <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full">
           <Editor
             editorState={editorState}
             onEditorStateChange={setEditorState}
