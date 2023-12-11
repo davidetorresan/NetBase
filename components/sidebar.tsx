@@ -10,6 +10,7 @@ import {
   MessageSquare,
   Music,
   Settings,
+  StickyNote,
   VideoIcon,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -27,16 +28,21 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "Assistant",
+    label: "AI Chat",
     icon: MessageSquare,
     href: "/assistant",
     color: "text-violet-500",
   },
   {
-    label: "Image Generation",
+    label: "IA Immagini",
     icon: ImageIcon,
     color: "text-pink-700",
     href: "/image",
+  },
+  {
+    label: "Appunti",
+    icon: StickyNote,
+    href: "/notes",
   },
   {
     label: "Informazioni",
