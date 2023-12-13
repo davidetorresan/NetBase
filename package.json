@@ -51,6 +51,7 @@
     "react-hook-form": "^7.45.1",
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^8.0.7",
+    "react-select": "^5.8.0",
     "replicate": "^0.12.3",
     "stripe": "^12.13.0",
     "svix": "^1.14.0",
