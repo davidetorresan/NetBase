@@ -1,6 +1,10 @@
-import { Icon } from "lucide-react";
+"use client";
+import { Cross, CrossIcon, Icon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface HeadingProps {
   title: string;
@@ -8,6 +12,7 @@ interface HeadingProps {
   icon: Icon;
   iconColor?: string;
   bgColor?: string;
+  hasNew?: boolean
 }
 
 export const Heading = ({
@@ -16,6 +21,7 @@ export const Heading = ({
   icon: Icon,
   iconColor,
   bgColor,
+  hasNew = false
 }: HeadingProps) => {
   return (
     <>
@@ -29,6 +35,9 @@ export const Heading = ({
             {description}
           </p>
         </div>
+        {hasNew && 
+          <Link href="/notes/new" className="ml-3"><Button><Cross size={15} className="mr-2" />Crea nuovo</Button></Link>
+        }
       </div>
     </>
   );
