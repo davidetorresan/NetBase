@@ -28,7 +28,13 @@ const NewNotesPage = () => {
     let res = await axios.post("/api/notes", data);
   }
 
-  const options = [
+  const optionsStatus = [
+    { value: "PUBLIC", label: "Pubblica" },
+    { value: "PRIVATE", label: "Privata" },
+    { value: "DRAFT", label: "Bozza" },
+  ];
+
+  const optionsCategory = [
     { value: "chocolate", label: "Chocolate" },
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" },
@@ -51,24 +57,40 @@ const NewNotesPage = () => {
             placeholder="Inserisci il titolo della nota"
           />
           <h3 className="font-bold mb-1">Contenuto</h3>
-          <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full mb-4">
+          <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full mb-4 min-h-[200px]">
             <Editor
               editorState={editorState}
               toolbarClassName="toolbarClassName"
               wrapperClassName="wrapperClassName"
               editorClassName="editorClassName"
+              editorStyle={{height: "100%"}}
               onEditorStateChange={onEditorStateChange}
             />
           </div>
-          <h3 className="font-bold mb-1">Categorie</h3>
-          <Select
-            defaultValue={[options[2], options[3]]}
-            isMulti
-            name="colors"
-            options={options}
-            className="basic-multi-select w-1/4 mb-4"
-            classNamePrefix="select"
-          />
+          <div className="flex flex-row w-full justify-between">
+            <div className="w-1/3">
+              <h3 className="font-bold mb-1">Categorie</h3>
+              <Select
+                isMulti
+                name="colors"
+                options={optionsCategory}
+                defaultValue={optionsCategory[0]}
+                className="basic-multi-select w-full mb-4"
+                classNamePrefix="select"
+              />
+            </div>
+            
+            <div className="w-1/3">
+              <h3 className="font-bold mb-1">Status</h3>
+              <Select
+                name="colors"
+                options={optionsStatus}
+                defaultValue={optionsStatus[2]}
+                className="basic-multi-select w-full mb-4"
+                classNamePrefix="select"
+              />
+            </div>
+          </div>
           <Button
             onClick={() => handleSubmit}
             variant="default"

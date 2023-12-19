@@ -6,7 +6,6 @@ import { Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { frasi } from "./data/frasi.js";
 
 export const SubscriptionProvider = ({
   children,
@@ -31,7 +30,6 @@ export const SubscriptionProvider = ({
       setLoading(false);
     }
   };
-  const randomValue = parseInt((Math.random() * frasi.length).toString());
 
   const userSubscription = async () => {
     setLoading(true);
@@ -63,18 +61,11 @@ export const SubscriptionProvider = ({
     );
   }
   if (loading) {
-    console.log(randomValue);
     return (
       <div className="w-full h-full flex justify-center items-center flex-col bg-[#111827] text-white">
         <h1 className="text-2xl md:text-5xl font-bold text-center">
           Stiamo caricando la tua dashboard
         </h1>
-        <p className="text-center text-[10px] md:text-lg mt-5 font-extralight max-w-[80%]">
-          &quot;{frasi[randomValue]?.content}&quot;
-        </p>
-        <p className="text-center text-[10px] md:text-lg mt-5 font-bold">
-          cit. {frasi[randomValue]?.author}
-        </p>
         <Player
           autoplay
           loop
