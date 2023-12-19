@@ -62,20 +62,6 @@ const ConversationPage = () => {
     }
   };
 
-  const fetchGmail = async () => {
-   try{
-    let res = await axios.get("/api/gmail")
-
-   console.log(res)
-   }catch(e:any){
-    console.log(e?.message, e)
-   }
-  }
-
-  useEffect(() => {
-    //fetchGmail()
-  }, [])
-
   return (
     <div>
       <Heading

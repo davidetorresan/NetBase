@@ -1,4 +1,4 @@
-const accountSid = process.env.TWILIO_ACCOUNT_ID;
+/*const accountSid = process.env.TWILIO_ACCOUNT_ID;
 const authToken = process.env.TWILIO_SECRET;
 const client = require("twilio")(accountSid, authToken);
 
@@ -9,3 +9,4 @@ export async function GET(request: Request) {
     to: "whatsapp:+15005550006",
   });
 }
+*/
