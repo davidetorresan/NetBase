@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 const SingleNotesPage = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [text, setText] = useState();
-  const onEditorStateChange = function (editorState:any) {
+  const onEditorStateChange = function (editorState: any) {
     setEditorState(editorState);
     const { blocks } = convertToRaw(editorState.getCurrentContent());
     let text = editorState.getCurrentContent().getPlainText("\u0001");
@@ -22,8 +22,8 @@ const SingleNotesPage = () => {
   };
 
   async function handleSubmit() {
-    let data = {}
-    let res = await axios.post("/api/notes", data)
+    let data = {};
+    let res = await axios.post("/api/notes", data);
   }
 
   return (
@@ -37,7 +37,10 @@ const SingleNotesPage = () => {
       />
       <div className="px-4 lg:px-8">
         <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full">
-          <Input className="mb-4" placeholder="Inserisci il titolo della nota"/>
+          <Input
+            className="mb-4"
+            placeholder="Inserisci il titolo della nota"
+          />
           <Editor
             editorState={editorState}
             toolbarClassName="toolbarClassName"
@@ -45,9 +48,13 @@ const SingleNotesPage = () => {
             editorClassName="editorClassName"
             onEditorStateChange={onEditorStateChange}
           />
-        <Button onClick={() => handleSubmit} variant="default" className="w-full">
-          Save
-        </Button>
+          <Button
+            onClick={() => handleSubmit}
+            variant="default"
+            className="w-full"
+          >
+            Save
+          </Button>
         </div>
       </div>
       <div className="px-4 lg:px-8 space-y-4 mt-10"></div>

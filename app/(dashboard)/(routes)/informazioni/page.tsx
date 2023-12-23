@@ -1,3 +1,4 @@
+"use client";
 
 import { Settings, Receipt, Gem } from "lucide-react";
 
@@ -5,9 +6,8 @@ import { Heading } from "@/components/heading";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
 
-const SettingsPage = async () => {
-  const isPro = await checkSubscription();
-
+const SettingsPage = () => {
+  const isPro = checkSubscription();
   return (
     <div>
       <Heading
@@ -29,8 +29,6 @@ const SettingsPage = async () => {
         </div>
         <SubscriptionButton isPro={isPro} />
       </div>
-
-     
     </div>
   );
 };
