@@ -6,6 +6,7 @@ import { Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import toast from "react-hot-toast";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { checkSubscription } from "@/lib/subscription";
 
 export const SubscriptionProvider = ({
   children,
@@ -33,9 +34,8 @@ export const SubscriptionProvider = ({
 
   const userSubscription = async () => {
     setLoading(true);
-    let res = await axios.get("/api/subscription");
-    setActive(res.data.active);
-    console.log("QUI", isActive);
+    let res: any = await checkSubscription();
+    setActive(res.isValid);
     setTimeout(() => {
       setLoading(false);
     }, 1000);
