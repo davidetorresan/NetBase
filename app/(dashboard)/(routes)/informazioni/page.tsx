@@ -59,8 +59,8 @@ const SettingsPage = () => {
                 Le tue fatture
               </h1>
               <ul className="list-disc">
-                {isPro?.invoices.map((item: any, i: Number) => (
-                  <li className="flex flex-row items-center">
+                {isPro?.invoices.map((item: any, i: any) => (
+                  <li className="flex flex-row items-center" key={i}>
                     <a href={item.invoice_pdf} download>
                       {"#"}
                       {item.number}
