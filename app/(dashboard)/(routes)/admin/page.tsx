@@ -6,7 +6,6 @@ import { Heading } from "@/components/heading";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
 import { useEffect, useState } from "react";
-import { useRoles } from "@/lib/useRoles";
 import { useRouter } from "next/navigation";
 
 const AdminPage = () => {
@@ -26,4 +25,4 @@ const AdminPage = () => {
     );
 };
 
-export default useRoles(AdminPage);
+export default AdminPage;
