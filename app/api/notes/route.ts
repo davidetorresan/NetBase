@@ -7,14 +7,4 @@ export async function POST(request: Request) {
 
   if (!body) return;
   console.log(body);
-
-  return await prismadb.notes.create({
-    data: {
-      title: body?.title,
-      content: body?.content,
-      userId: body?.userId,
-      customerId: body?.customerId,
-      category: body?.category,
-    },
-  });
 }

@@ -71,7 +71,6 @@ const NewNotesPage = () => {
           <Input
             className="mb-4"
             placeholder="Inserisci il titolo della nota"
-            onChange={(e) => setJson({ ...json, title: e.target.value })}
           />
           <h3 className="font-bold mb-1">Contenuto</h3>
           <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full mb-4 min-h-[200px]">
@@ -94,7 +93,6 @@ const NewNotesPage = () => {
                 defaultValue={optionsCategory[0]}
                 className="basic-multi-select w-full mb-4"
                 classNamePrefix="select"
-                onChange={(e) => setJson({ ...json, category: e })}
               />
             </div>
 
@@ -106,7 +104,6 @@ const NewNotesPage = () => {
                 defaultValue={optionsStatus[2]}
                 className="basic-multi-select w-full mb-4"
                 classNamePrefix="select"
-                onChange={(e) => setJson({ ...json, status: e?.value })}
               />
             </div>
           </div>
