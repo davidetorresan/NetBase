@@ -6,11 +6,11 @@ import { Heading } from "@/components/heading";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib/subscription";
 import { useEffect, useState } from "react";
-import Stripe from "stripe";
 
 const SettingsPage = () => {
   const [isPro, setIsPro] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
+
   const checkIsPro = async () => {
     setIsLoading(true);
     let res = await checkSubscription();
@@ -55,16 +55,17 @@ const SettingsPage = () => {
             </div>
             <div className="space-y-4">
               <h1 className="text-lg font-bold flex items-center">
-                <File className="mr-2" />
+                <Receipt className="mr-2" />
                 Le tue fatture
               </h1>
               <ul className="list-disc">
                 {isPro?.invoices.map((item: any, i: Number) => (
                   <li className="flex flex-row items-center">
-                    <a href={item.invoice_pdf} download className="mr-2">
+                    <a href={item.invoice_pdf} download>
                       {"#"}
                       {item.number}
                     </a>
+                    <p className="mx-2">-</p>
                     <p>{new Date(item.created).toLocaleDateString("it-IT")}</p>
                   </li>
                 ))}

@@ -12,20 +12,36 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import Select from "react-select";
+import { log } from "console";
 
 const NewNotesPage = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [text, setText] = useState();
-  const onEditorStateChange = function (editorState: any) {
-    setEditorState(editorState);
-    const { blocks } = convertToRaw(editorState.getCurrentContent());
-    let text = editorState.getCurrentContent().getPlainText("\u0001");
+
+  const [json, setJson] = useState({
+    title: "",
+    content: "",
+    status: "",
+    category: [
+      {
+        value: "",
+        lable: "",
+      },
+    ],
+  });
+
+  const onEditorStateChange = function (data: any) {
+    setEditorState(data);
+    setJson({ ...json, content: data });
+    const { blocks } = convertToRaw(data.getCurrentContent());
+    let text = data.getCurrentContent().getPlainText("\u0001");
     setText(text);
   };
 
   async function handleSubmit() {
-    let data = {};
-    let res = await axios.post("/api/notes", data);
+    console.log(json);
+
+    let res = await axios.post("/api/notes", json);
   }
 
   const optionsStatus = [
@@ -55,6 +71,7 @@ const NewNotesPage = () => {
           <Input
             className="mb-4"
             placeholder="Inserisci il titolo della nota"
+            onChange={(e) => setJson({ ...json, title: e.target.value })}
           />
           <h3 className="font-bold mb-1">Contenuto</h3>
           <div className="rounded-lg border p-4 px-3 md:px-6 focus-within:shadow-sm w-full mb-4 min-h-[200px]">
@@ -63,7 +80,7 @@ const NewNotesPage = () => {
               toolbarClassName="toolbarClassName"
               wrapperClassName="wrapperClassName"
               editorClassName="editorClassName"
-              editorStyle={{height: "100%"}}
+              editorStyle={{ height: "100%" }}
               onEditorStateChange={onEditorStateChange}
             />
           </div>
@@ -77,9 +94,10 @@ const NewNotesPage = () => {
                 defaultValue={optionsCategory[0]}
                 className="basic-multi-select w-full mb-4"
                 classNamePrefix="select"
+                onChange={(e) => setJson({ ...json, category: e })}
               />
             </div>
-            
+
             <div className="w-1/3">
               <h3 className="font-bold mb-1">Status</h3>
               <Select
@@ -88,6 +106,7 @@ const NewNotesPage = () => {
                 defaultValue={optionsStatus[2]}
                 className="basic-multi-select w-full mb-4"
                 classNamePrefix="select"
+                onChange={(e) => setJson({ ...json, status: e?.value })}
               />
             </div>
           </div>
