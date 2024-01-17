@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import prismadb from "@/lib/prismadb";
+import { uuid } from "@/lib/utils";
 
 export async function POST(req: any) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -53,6 +54,8 @@ export async function POST(req: any) {
         (evt?.data?.phone_numbers[0]?.phone_number as string) || null;
       const role = "CUSTOMER";
 
+      const referal = Math.random().toString(36).substring(7).toUpperCase();
+
       try {
         await prismadb.user.create({
           data: {
@@ -62,6 +65,7 @@ export async function POST(req: any) {
             email,
             phone,
             role,
+            referal,
           },
         });
       } catch (e) {
