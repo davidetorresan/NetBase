@@ -56,7 +56,6 @@ model User {
   team      String?
   services  Json?
   role      ROLES
-  referal   String
 }
 
 model AssistantMessagesChat {
