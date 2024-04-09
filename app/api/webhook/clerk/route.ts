@@ -48,6 +48,7 @@ export async function POST(req: any) {
             email,
             phone,
             role,
+            referal,
           },
         });
       } catch (e) {
