@@ -1,4 +1,12 @@
-import { Code, ImageIcon, MessageSquare, Music, StickyNote, VideoIcon } from "lucide-react";
+import {
+  Code,
+  ImageIcon,
+  MessageSquare,
+  Music,
+  StickyNote,
+  VideoIcon,
+  Zap,
+} from "lucide-react";
 
 export const MAX_FREE_COUNTS = 5;
 
@@ -11,17 +19,17 @@ export const tools = [
     bgColor: "bg-violet-500/10",
   },
   {
-    label: "IA Generazione",
-    icon: ImageIcon,
-    color: "text-pink-700",
-    bgColor: "bg-pink-700/10",
-    href: "/image",
+    label: "Financial AI Chat",
+    icon: Zap,
+    href: "/finance",
+    color: "text-green-500",
+    bgColor: "bg-green-500/10",
   },
   {
     label: "Appunti",
     icon: StickyNote,
-    color: "text-blue-700",
-    bgColor: "bg-blue-700/10",
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
     href: "/notes",
   },
 ];

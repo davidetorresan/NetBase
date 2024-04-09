@@ -12,20 +12,36 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import Select from "react-select";
+import { log } from "console";
 
 const NewNotesPage = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [text, setText] = useState();
-  const onEditorStateChange = function (editorState: any) {
-    setEditorState(editorState);
-    const { blocks } = convertToRaw(editorState.getCurrentContent());
-    let text = editorState.getCurrentContent().getPlainText("\u0001");
+
+  const [json, setJson] = useState({
+    title: "",
+    content: "",
+    status: "",
+    category: [
+      {
+        value: "",
+        lable: "",
+      },
+    ],
+  });
+
+  const onEditorStateChange = function (data: any) {
+    setEditorState(data);
+    setJson({ ...json, content: data });
+    const { blocks } = convertToRaw(data.getCurrentContent());
+    let text = data.getCurrentContent().getPlainText("\u0001");
     setText(text);
   };
 
   async function handleSubmit() {
-    let data = {};
-    let res = await axios.post("/api/notes", data);
+    console.log(json);
+
+    let res = await axios.post("/api/notes", json);
   }
 
   const optionsStatus = [
@@ -63,7 +79,7 @@ const NewNotesPage = () => {
               toolbarClassName="toolbarClassName"
               wrapperClassName="wrapperClassName"
               editorClassName="editorClassName"
-              editorStyle={{height: "100%"}}
+              editorStyle={{ height: "100%" }}
               onEditorStateChange={onEditorStateChange}
             />
           </div>
@@ -79,7 +95,7 @@ const NewNotesPage = () => {
                 classNamePrefix="select"
               />
             </div>
-            
+
             <div className="w-1/3">
               <h3 className="font-bold mb-1">Status</h3>
               <Select
