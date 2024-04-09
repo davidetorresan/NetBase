@@ -30,19 +30,19 @@ const OrderProcessing = async () => {
             <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
             <span className="font-bold">NetCRM&trade;</span>
             <small>
-              Il tuo gestionale per gestire al meglio le tue vendite
+              Il tuo gestionale per gestire al meglio le tue vendite (Soon)
             </small>
           </p>
           <p className="mt-5 flex items-center flex-col">
             <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
             <span className="font-bold">NetGPT&trade;</span>
-            <small>La tua AI dedicato al mondo del Network Marketing</small>
+            <small>La tua AI dedicato al mondo del Marketing</small>
           </p>
           <p className="mt-5 flex items-center flex-col">
             <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
             <span className="font-bold">NetCAL&trade;</span>
             <small>
-              Il tuo calendario completamente integrato nel tuo CRM.
+              Il tuo calendario completamente integrato nel tuo CRM. (Soon)
             </small>
           </p>
           <p className="mt-5 flex items-center flex-col">

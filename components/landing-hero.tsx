@@ -14,7 +14,7 @@ export const LandingHero = () => {
         <h1>
           NetBase™ è la chiave segreta per trasformare il
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            network marketing
+            marketing
           </span>
           in un&apos;esperienza senza pari.
         </h1>
@@ -25,11 +25,11 @@ export const LandingHero = () => {
         d&apos;ora.
         <br />
         Con analisi intelligenti, strumenti di gestione intuitivi e
-        un&apos;interfaccia user-friendly, trasforma il tuo network in una rete
-        di successo senza limiti.
+        un&apos;interfaccia user-friendly, trasforma il tuo il tuo lavoro in
+        un'esperienza senza pari.
         <br />
-        Eleva la tua strategia di marketing con NetBase™ e preparati a
-        raggiungere nuovi livelli di risultati e connessioni.
+        Eleva la tua strategia di marketing con NetBase™ e preparati ad umentare
+        le tue vendite.
       </div>
       <div>
         <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>

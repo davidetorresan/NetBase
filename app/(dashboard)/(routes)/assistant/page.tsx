@@ -66,7 +66,7 @@ const ConversationPage = () => {
     <div>
       <Heading
         title="Assistant"
-        description="The most advanced network marketing model."
+        description="The most advanced marketing model."
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"

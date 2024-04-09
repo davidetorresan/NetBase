@@ -49,7 +49,7 @@ export async function GET() {
             product_data: {
               name: "NetBase™ Pro",
               description:
-                "NetBase™ è la chiave segreta per trasformare il network marketing in un'esperienza senza pari.",
+                "NetBase™ è la chiave segreta per trasformare il marketing in un'esperienza senza pari.",
             },
             unit_amount: 23988,
             recurring: {

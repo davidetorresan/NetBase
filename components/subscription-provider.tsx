@@ -120,7 +120,7 @@ export const SubscriptionProvider = ({
                 <Zap className="w-4 h-4 ml-2 fill-white mr-2" />
                 <span className="font-bold">NetGPT&trade;</span>
                 <small className="text-[12px] md:text-sm">
-                  La tua AI dedicato al mondo del Network Marketing
+                  La tua AI dedicato al mondo del Marketing
                 </small>
               </p>
               <p className="mt-5 flex items-center flex-col">
